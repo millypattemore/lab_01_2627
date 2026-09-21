@@ -126,9 +126,31 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species, sh
 From now on I won't remind you to do this - you should get into the habit of doing it whenever you reach a natural point to commit!
 
 ### Task 3
+```{r}
+
+```
 
 Produce plots to answer the following research questions:
 
-- [ ] On which island are we most likely to find which penguins?
-- [ ] What is the most useful measurement or measurements to distinguish different species of penguin?
+- [x] On which island are we most likely to find which penguins?
+
+Biscoe - Gentoo, Adelie
+
+Dream - Chinstrap, Adelie
+
+Torgersen - Adelie
+
+```{r}
+ggplot(penguins, aes(x = island, fill = species)) + 
+  geom_bar()
+```
+- [x] What is the most useful measurement or measurements to distinguish different species of penguin?
+
+Flipper length is the most useful individual measurement, though it still has some overlap. When paired with bill depth, the penguins can be identified.
+```{r}
+ggplot(penguins, aes(x = species, y = flipper_length_mm)) +
+  geom_boxplot()
+ggplot(penguins, aes(x = species, y = bill_length_mm)) +
+  geom_boxplot()
+```
 - [ ] Do the measurements given vary significantly with the penguin's genders?
